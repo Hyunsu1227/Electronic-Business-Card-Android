@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, CardDetail.class);
+                intent.putExtra("activity", "내명함");
                 startActivity(intent);
             }
         });
