@@ -19,6 +19,9 @@
         <activity android:name=".UI.CardDetail">
 
         </activity>
+        <activity android:name=".UI.CardListActivity">
+
+        </activity>
     </application>
 
 </manifest>

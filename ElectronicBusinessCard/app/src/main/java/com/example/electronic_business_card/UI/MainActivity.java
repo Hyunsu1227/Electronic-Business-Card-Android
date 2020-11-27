@@ -25,5 +25,15 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        Button cardList = findViewById(R.id.cardList);
+        cardList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, CardListActivity.class);
+                intent.putExtra("activity", "명함집");
+                startActivity(intent);
+            }
+        });
     }
 }
