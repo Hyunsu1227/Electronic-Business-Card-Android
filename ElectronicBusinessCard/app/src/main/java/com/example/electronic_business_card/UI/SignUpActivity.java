@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.electronic_business_card.R;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -28,6 +29,7 @@ public class SignUpActivity extends AppCompatActivity {
     EditText id, password, password2, nickName;
     Button signUp;
     String result = null;
+    String cardResult;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +40,8 @@ public class SignUpActivity extends AppCompatActivity {
         password2 = findViewById(R.id.password2EditText);
         nickName = findViewById(R.id.nicknameEditText);
         signUp = findViewById(R.id.signUpReqButton);
+
+
 
         signUp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,6 +58,7 @@ public class SignUpActivity extends AppCompatActivity {
             }
         });
     }
+
     class SignUpAsync extends AsyncTask<Void, Void, String>{
         @Override
         protected void onPostExecute(String result) {
@@ -70,6 +75,7 @@ public class SignUpActivity extends AppCompatActivity {
         protected String doInBackground(Void... strings) {
             String urlStr = "https://15.164.216.57:5001/join?" + "id=" + id.getText().toString() + "&pw=" + password.getText().toString()
                     + "&nickname=" + nickName.getText().toString();
+
             try {
                 // Open the connection
                 URL url = new URL(urlStr);
