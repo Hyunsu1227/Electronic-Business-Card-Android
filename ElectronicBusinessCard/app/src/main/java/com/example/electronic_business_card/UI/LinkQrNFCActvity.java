@@ -3,13 +3,9 @@ package com.example.electronic_business_card.UI;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.method.KeyListener;
-import android.view.Menu;
-import android.view.MenuItem;
 
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -55,13 +51,14 @@ public class LinkQrNFCActvity extends AppCompatActivity {
             }
         });
 
-//        nfc.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(LinkQrNFCActvity.this, CardDetail.class);
-//                intent.putExtra("activity", "nfc");
-//                startActivity(intent);
-//            }
-//        });
+        nfc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LinkQrNFCActvity.this, NFCActivity.class);
+                intent.putExtra("activity", "nfc");
+                intent.putExtra("token", token);
+                startActivity(intent);
+            }
+        });
     }
 }
