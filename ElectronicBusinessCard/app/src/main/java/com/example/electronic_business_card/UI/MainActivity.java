@@ -16,12 +16,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
 
+        final Intent mainIntent = getIntent();
+
         Button myCard = findViewById(R.id.myCard);
         myCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, CardDetail.class);
                 intent.putExtra("activity", "내명함");
+                intent.putExtra("token", mainIntent.getStringExtra("token"));
                 startActivity(intent);
             }
         });
@@ -32,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, CardListActivity.class);
                 intent.putExtra("activity", "명함집");
+                intent.putExtra("token", mainIntent.getStringExtra("token"));
                 startActivity(intent);
             }
         });
@@ -42,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, LinkQrNFCActvity.class);
                 intent.putExtra("activity", "명함주고받기");
+                intent.putExtra("token", mainIntent.getStringExtra("token"));
                 startActivity(intent);
             }
         });
