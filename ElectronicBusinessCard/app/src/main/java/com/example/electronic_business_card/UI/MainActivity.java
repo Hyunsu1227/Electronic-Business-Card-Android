@@ -35,5 +35,15 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        Button card_send_receive = findViewById(R.id.card_send_receive);
+        card_send_receive.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, LinkQrNFCActvity.class);
+                intent.putExtra("activity", "명함주고받기");
+                startActivity(intent);
+            }
+        });
     }
 }

@@ -4,7 +4,7 @@
     android:layout_height="match_parent">
 
     <Button
-        android:id="@+id/myCard"
+        android:id="@+id/link"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -12,11 +12,10 @@
         android:layout_marginRight="40dp"
         android:layout_marginTop="30dp"
         android:layout_marginBottom="10dp"
-        android:text="내 명함"
+        android:text="링크로 주고받기"
         />
-
     <Button
-        android:id="@+id/cardList"
+        android:id="@+id/qr"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -24,10 +23,9 @@
         android:layout_marginRight="40dp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
-        android:text="명함집" />
-
+        android:text="QR코드로 주고받기" />
     <Button
-        android:id="@+id/card_send_receive"
+        android:id="@+id/nfc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -35,5 +33,5 @@
         android:layout_marginRight="40dp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="30dp"
-        android:text="명함 주고받기" />
+        android:text="NFC로 명함 주고받기" />
 </LinearLayout>
