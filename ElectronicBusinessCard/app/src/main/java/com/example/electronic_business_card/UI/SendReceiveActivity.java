@@ -14,6 +14,7 @@ public class SendReceiveActivity extends AppCompatActivity {
     Button send, receive;
     String activity;
     Intent intent;
+    String token;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +25,7 @@ public class SendReceiveActivity extends AppCompatActivity {
 
         intent = getIntent();
         activity = intent.getExtras().getString("activity");
+        token = intent.getExtras().getString("token");
         switch (activity) {
             case "qr":
                 send.setText("QR code 생성");
@@ -36,6 +38,7 @@ public class SendReceiveActivity extends AppCompatActivity {
                 switch (activity){
                     case "qr":
                         Intent intent = new Intent(SendReceiveActivity.this, CreateQR.class);
+                        intent.putExtra("token", token);
                         startActivity(intent);
                         break;
                 }
@@ -49,6 +52,7 @@ public class SendReceiveActivity extends AppCompatActivity {
                 switch (activity){
                     case "qr":
                         Intent intent = new Intent(SendReceiveActivity.this, ScanQR.class);
+                        intent.putExtra("token", token);
                         startActivity(intent);
                         break;
                 }
