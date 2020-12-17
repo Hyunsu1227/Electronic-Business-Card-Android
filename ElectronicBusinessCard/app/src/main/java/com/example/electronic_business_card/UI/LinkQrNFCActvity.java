@@ -18,6 +18,10 @@ import com.example.electronic_business_card.R;
 
 public class LinkQrNFCActvity extends AppCompatActivity {
     Button link, qr, nfc;
+    String activity;
+    String token;
+    Intent intent;
+
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,23 +31,27 @@ public class LinkQrNFCActvity extends AppCompatActivity {
         qr = findViewById(R.id.qr);
         nfc = findViewById(R.id.nfc);
 
-//        link.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(LinkQrNFCActvity.this, CardDetail.class);
-//                intent.putExtra("activity", "link");
-//                startActivity(intent);
-//            }
-//        });
+        intent = getIntent();
+        activity = intent.getExtras().getString("activity");
+        token = intent.getExtras().getString("token");
+
+        link.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LinkQrNFCActvity.this, LinkActivity.class);
+                intent.putExtra("activity", "link");
+                intent.putExtra("token", token);
+                startActivity(intent);
+            }
+        });
 
         qr.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(LinkQrNFCActvity.this, SendReceiveActivity.class);
                 intent.putExtra("activity", "qr");
+                intent.putExtra("token", token);
                 startActivity(intent);
-
-                intent.getExtras().getString("activity").equals("내명함");
             }
         });
 

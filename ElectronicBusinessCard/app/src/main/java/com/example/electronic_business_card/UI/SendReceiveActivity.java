@@ -2,6 +2,7 @@ package com.example.electronic_business_card.UI;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -11,6 +12,8 @@ import com.example.electronic_business_card.R;
 
 public class SendReceiveActivity extends AppCompatActivity {
     Button send, receive;
+    String activity;
+    Intent intent;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,29 +22,37 @@ public class SendReceiveActivity extends AppCompatActivity {
         send = findViewById(R.id.send);
         receive = findViewById(R.id.receive);
 
-        Intent intent = getIntent();
-        if(intent.getExtras().getString("activity").equals("qr")){
-            send.setText("QR code 생성");
-            receive.setText("QR code 스캔");
+        intent = getIntent();
+        activity = intent.getExtras().getString("activity");
+        switch (activity) {
+            case "qr":
+                send.setText("QR code 생성");
+                receive.setText("QR code 스캔");
+                break;
         }
 
         send.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-//                Intent intent = new Intent(LinkQrNFCActvity.this, CardDetail.class);
-//                intent.putExtra("activity", "link");
-//                startActivity(intent);
+            public void onClick(View v){
+                switch (activity){
+                    case "qr":
+                        Intent intent = new Intent(SendReceiveActivity.this, CreateQR.class);
+                        startActivity(intent);
+                        break;
+                }
+
             }
         });
 
         receive.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Intent intent = new Intent(LinkQrNFCActvity.this, CardDetail.class);
-//                intent.putExtra("activity", "qr");
-//                startActivity(intent);
-//
-//
+                switch (activity){
+                    case "qr":
+                        Intent intent = new Intent(SendReceiveActivity.this, ScanQR.class);
+                        startActivity(intent);
+                        break;
+                }
+
             }
         });
     }

@@ -67,6 +67,7 @@ public class SignInActivity extends AppCompatActivity {
             }else{
                 Toast.makeText(SignInActivity.this , "로그인 성공", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(SignInActivity.this, MainActivity.class);
+                result = result.substring(1,result.length() - 1); // "" 제거
                 intent.putExtra("token", result);
 
                 startActivity(intent);

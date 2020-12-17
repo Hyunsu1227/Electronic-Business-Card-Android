@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.electronic_business_card">
     <uses-permission android:name="android.permission.INTERNET"></uses-permission>
     <application
@@ -9,7 +10,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
+        android:hardwareAccelerated="true"
         >
+
+        <activity android:name="com.journeyapps.barcodescanner.CaptureActivity"
+            android:screenOrientation="fullSensor"
+            tools:replace="screenOrientation"/>
 
         <activity android:name=".UI.SignInActivity">
             <intent-filter>
@@ -38,6 +44,15 @@
         </activity>
 
         <activity android:name=".UI.SendReceiveActivity">
+
+        </activity>
+        <activity android:name=".UI.CreateQR">
+
+        </activity>
+        <activity android:name=".UI.ScanQR">
+
+        </activity>
+        <activity android:name=".UI.LinkActivity">
 
         </activity>
     </application>
