@@ -156,9 +156,9 @@ public class CardDetail extends AppCompatActivity {
 */
             String urlStr = "https://15.164.216.57:5001/card_update?token=" + getToken +
                     "&name=" + name_edit.getText().toString() +
-                    "&address=" + company_edit.getText().toString() +
+                    "&address=" + position_edit.getText().toString() +
                     "&phone_number=" + phoneNumber_edit.getText().toString() +
-                    "&url=&description=";
+                    "&url="+eMail_edit.getText().toString()+"&description="+ company_edit.getText().toString();
 
 //            https://15.164.216.57:5001/card_create?token=BZgokJ419HaF1Vkh5Ia&name=a&address=a&phone_number=01011112222&url=&description=
             try {
@@ -333,11 +333,6 @@ public class CardDetail extends AppCompatActivity {
                 description = obj.getString("description");
                 Log.d("[psc]","name:"+name);
 
-                name_edit.setText(name);
-                company_edit.setText(description);
-                position_edit.setText(address);
-                phoneNumber_edit.setText(phone);
-                eMail_edit.setText(face_photo);
                 //JSONTokener tokener = new JSONTokener(result);
                 //JSONObject json = new JSONObject(tokener);
                 //JSONArray jsonArray = json.getJSONArray()
