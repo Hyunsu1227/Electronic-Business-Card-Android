@@ -148,7 +148,7 @@ public class CardListActivity extends AppCompatActivity {
                 Log.d("[psc0]", result);
                 JSONArray arr = new JSONArray(result);
                 for(int i=0; i<arr.length();i++){
-                    JSONObject obj = arr.getJSONObject(0);
+                    JSONObject obj = arr.getJSONObject(i);
                     int int_card_id = obj.getInt("friends_cards");
                     String tmp_card_id = Integer.toString(int_card_id);
 
